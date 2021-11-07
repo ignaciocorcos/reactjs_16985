@@ -1,8 +1,9 @@
 
-import './styles.css';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { NavBar } from './components/NavBar/NavBar';
-
+import { HomeView } from './components/HomeView/HomeView';
 
 function App() {
 
@@ -10,6 +11,7 @@ function App() {
     <div className="mi.app">
       
       <NavBar />
+      <HomeView titulos ="Taller en ingenieria Electrica" contenido ="Fabricacion y reparacion de equipo de soldadura por punto y fuentes de CC"/>
 
     </div>
   );
