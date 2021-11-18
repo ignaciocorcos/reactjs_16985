@@ -1,20 +1,38 @@
-import React from 'react'
+
+import React, { useEffect, useState } from 'react'
+import { pedirDatos } from '../../helpers/pedirDatos'
+import { ItemList } from '../ItemList/ItemList'
 import { Container } from 'react-bootstrap'
-import { ProductCard } from '../ProductCard/ProductCard'
-import {ItemCount} from '../ItemCount/ItemCount'
-import mpp from "../../assets/Maquinas/mpp/mpp16-20n_300x300.png"
 
 
-export const ItemListContainer = ({ greeting}) => {
-    
-    
-    return (
+export const ItemListContainer = () => {
 
-        <Container className= "my-5">
-           
-            <ProductCard img={mpp} name="Mpp20" stock="10"/>
+    const [loading, setLoading] = useState(false)
+    const [productos, setProductos] = useState([])
 
-        </Container>
+    useEffect(() => {
         
+        setLoading(true)
+        pedirDatos()
+            .then( (resp) => {
+                setProductos(resp)
+            })
+            .catch( (error) => {
+                console.log(error)
+            })
+            .finally(() => {
+                setLoading(false)
+            })
+
+    }, [])
+
+    return (
+        <>
+            {
+                loading 
+                    ? <h2>Cargando...</h2> 
+                    : <ItemList items={productos}/>
+            }
+        </>
     )
 }
