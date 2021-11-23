@@ -7,34 +7,36 @@ import { NavBar } from './components/NavBar/NavBar';
 import { HomeView } from './components/HomeView/HomeView';
 import { ItemListContainer } from './components/ItemListContainer/ItemListContainer';
 import { Clicker } from './components/ejemplo/Clicker/Clicker';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { ItemDetailContainer } from './components/ItemDetailContainer/ItemDetailContainer';
 
 function App() {
   
-  const [ greeting, setGreeting] = useState('Bienvenidos')
-
-  setTimeout(() => {
-    setGreeting ('Adios')
-  }, 5000)
-
-  const [mostrarClicker, SetMostarClicker]=useState(true)
-
-  const handleMostar = ()=>{
-    SetMostarClicker(!mostrarClicker)
-  }
-
   return (
     <div className="mi.app">
+      <>
+        <BrowserRouter>
+          
+          <Routes>
+            <Route path="/" />
 
-      <NavBar />
-      <HomeView
-       titulos ="Taller en ingenieria Electrica" 
-      contenido ="Fabricacion y reparacion de equipo de soldadura por punto y fuentes de CC"/>
-     
-      <ItemListContainer greeting = {greeting}/>
-      <button onClick={handleMostar}>Mostrar</button>
-     
 
-      {mostrarClicker && <Clicker/>}
+          </Routes>
+          <NavBar />
+
+          
+          <HomeView
+           titulos ="Taller en ingenieria Electrica" 
+           contenido ="Fabricacion y reparacion de equipo de soldadura por punto y fuentes de CC"/>
+            
+          <ItemListContainer/>
+
+          <ItemDetailContainer/>
+        
+        </BrowserRouter>
+     
+      </>
+     
 
     </div>
   )
