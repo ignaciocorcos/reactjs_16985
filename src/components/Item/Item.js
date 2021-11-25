@@ -1,6 +1,7 @@
 import React from 'react'
 import { Card, DropdownButton, ButtonGroup, Button  } from "react-bootstrap"
 import { ItemCount } from '../ItemCount/ItemCount'
+import { Link } from 'react-router-dom'
 
 export const Item = ({id, name, img, desc, price}) => {
     return (
@@ -16,7 +17,7 @@ export const Item = ({id, name, img, desc, price}) => {
                 <p className="card-text">{desc}</p>
                 </DropdownButton>
 
-                <Button variant="primary" className= "m-1">Detalles</Button>
+                <Button variant="primary" className= "m-1"><Link to="detail">Detalles</Link></Button>
                 
             </Card.Body>
             <ItemCount stock="5"/>
