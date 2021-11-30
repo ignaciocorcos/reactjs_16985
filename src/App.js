@@ -8,24 +8,25 @@ import { ItemListContainer } from './components/ItemListContainer/ItemListContai
 import { Clicker } from './components/ejemplo/Clicker/Clicker';
 import { BrowserRouter, Route, Routes, Navigate} from 'react-router-dom';
 import { ItemDetailContainer } from './components/ItemDetailContainer/ItemDetailContainer';
-import { CartWidget } from './components/CartWidget/CartWidget';
+import { CartView } from './components/CartView/CartView';
 
 function App() {
   
   return (
     <div className="mi.app">
       <>
-      <NavBar />
-          <HomeView
-           titulos ="Taller en ingenieria Electrica" 
-           contenido ="Fabricacion y reparacion de equipo de soldadura por punto y fuentes de CC"/>
         <BrowserRouter>
           
+          <NavBar />
+          <HomeView titulos ="Taller en ingenieria Electrica" contenido ="Fabricacion y reparacion de equipo de soldadura por punto y fuentes de CC"/>
+
+
           <Routes>
             
             <Route path="/" element={<ItemListContainer/>}/>
-            <Route path="/detail" element={<ItemDetailContainer/>}/>
-            <Route path="/cart" element={<CartWidget/>}/>
+            <Route path="/productos/:catId" element={<ItemListContainer/>}/>
+            <Route path="/detail/:itemId" element={<ItemDetailContainer/>}/>
+            <Route path="/cart" element={<CartView/>}/>
             <Route path="*" element={<Navigate to="/"/>}/>
           
           </Routes>

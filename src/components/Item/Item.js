@@ -3,7 +3,7 @@ import { Card, DropdownButton, ButtonGroup, Button  } from "react-bootstrap"
 import { ItemCount } from '../ItemCount/ItemCount'
 import { Link } from 'react-router-dom'
 
-export const Item = ({id, name, img, desc, price}) => {
+export const Item = ({id, name, img, desc, price, category}) => {
     return (
         <Card key={id} style={{ width: '18rem' }} className= "m-2">
             <Card.Img variant="top" src= {img} />
@@ -15,12 +15,15 @@ export const Item = ({id, name, img, desc, price}) => {
                 <h3 className="card-title">{name}</h3>
                 <p className="card-text">Precio: ${price}</p>
                 <p className="card-text">{desc}</p>
+                <p className="card-text">{category}</p>
+                
                 </DropdownButton>
 
-                <Button variant="primary" className= "m-1"><Link to="detail">Detalles</Link></Button>
+                <Button variant="primary" className= "m-1"><Link to={`/detail/${id}` }>Ver mas</Link></Button>
                 
             </Card.Body>
             <ItemCount stock="5"/>
         </Card>
     )
 }
+
