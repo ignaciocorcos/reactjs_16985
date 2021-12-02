@@ -19,7 +19,7 @@ export const Item = ({id, name, img, desc, price, category}) => {
                 
                 </DropdownButton>
 
-                <Button variant="primary" className= "m-1"><Link to={`/detail/${id}` }>Ver mas</Link></Button>
+                <Link className= "btn btn-primary m-1" to={`/detail/${id}` }>Ver mas</Link>
                 
             </Card.Body>
             <ItemCount stock="5"/>
