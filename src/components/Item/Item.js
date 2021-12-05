@@ -1,6 +1,6 @@
 import React from 'react'
 import { Card, DropdownButton, ButtonGroup, Button  } from "react-bootstrap"
-import { ItemCount } from '../ItemCount/ItemCount'
+
 import { Link } from 'react-router-dom'
 
 export const Item = ({id, name, img, desc, price, category}) => {
@@ -22,7 +22,7 @@ export const Item = ({id, name, img, desc, price, category}) => {
                 <Link className= "btn btn-primary m-1" to={`/detail/${id}` }>Ver mas</Link>
                 
             </Card.Body>
-            <ItemCount stock="5"/>
+            
         </Card>
     )
 }

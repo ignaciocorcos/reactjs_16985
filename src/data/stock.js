@@ -5,7 +5,8 @@ export const stock = [
         name: "Mpp1",
         desc: "Lorem ipsum",
         img: "https://via.placeholder.com/220",
-        category: "new"
+        category: "new",
+        stock: 30
     },
     {
         id: 2,
@@ -13,7 +14,8 @@ export const stock = [
         name: "Mpp2",
         desc: "Lorem ipsum",
         img: "https://via.placeholder.com/220",
-        category: "new"
+        category: "new",
+        stock: 10
     },
     {
         id: 3,
@@ -21,7 +23,8 @@ export const stock = [
         name: "Mpp3",
         desc: "Lorem ipsum",
         img: "https://via.placeholder.com/220",
-        category: "soldadura"
+        category: "soldadura",
+        stock: 20
     },
     {
         id: 4,
@@ -29,7 +32,8 @@ export const stock = [
         name: "Mpp4",
         desc: "Lorem ipsum",
         img: "https://via.placeholder.com/220",
-        category: "soldadura"
+        category: "soldadura",
+        stock: 8
     },
     {
         id: 5,
@@ -37,7 +41,8 @@ export const stock = [
         name: "Mpp5",
         desc: "Lorem ipsum",
         img: "https://via.placeholder.com/220",
-        category: "soldadura"
+        category: "soldadura",
+        stock: 3
     },
     {
         id: 6,
@@ -45,7 +50,8 @@ export const stock = [
         name: "Mpp6",
         desc: "Lorem ipsum",
         img: "https://via.placeholder.com/220",
-        category: "rectificadores"
+        category: "rectificadores",
+        stock: 3
     },
     {
         id: 7,
@@ -53,7 +59,8 @@ export const stock = [
         name: "Mpp7",
         desc: "Lorem ipsum",
         img: "https://via.placeholder.com/220",
-        category: "rectificadores"
+        category: "rectificadores",
+        stock: 6
     },
     {
         id: 8,
@@ -61,7 +68,8 @@ export const stock = [
         name: "Mpp8",
         desc: "Lorem ipsum",
         img: "https://via.placeholder.com/220",
-        category: "rectificadores"
+        category: "rectificadores",
+        stock: 2
     },
     {
         id: 9,
@@ -69,7 +77,8 @@ export const stock = [
         name: "Mpp9",
         desc: "Lorem ipsum",
         img: "https://via.placeholder.com/220",
-        category: "oferta"
+        category: "oferta",
+        stock: 14
     },
     {
         id: 10,
@@ -77,7 +86,8 @@ export const stock = [
         name: "Mpp10",
         desc: "Lorem ipsum",
         img: "https://via.placeholder.com/220",
-        category: "oferta"
+        category: "oferta",
+        stock: 16
     },
     {
         id: 11,
@@ -85,7 +95,8 @@ export const stock = [
         name: "Mpp11",
         desc: "Lorem ipsum",
         img: "https://via.placeholder.com/220",
-        category: "usado"
+        category: "usado",
+        stock: 1
     },
     {
         id: 12,
@@ -93,6 +104,7 @@ export const stock = [
         name: "Mpp12",
         desc: "Lorem ipsum",
         img: "https://via.placeholder.com/220",
-        category: "oferta"
+        category: "oferta",
+        stock: 10
     },
 ]

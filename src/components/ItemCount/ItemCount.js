@@ -1,44 +1,33 @@
-import React  from 'react'
-import { Button } from 'react-bootstrap';
-import { useState } from 'react';
 
+import Button from '@restart/ui/esm/Button'
+import React from 'react'
 
-export const ItemCount = ({stock}) => {
+export const ItemCount = ({max, setCantidad, cantidad, onAdd}) => {
 
-    const [counter, setCounter] = useState(1)
-
-    const incrementar = ()=>{
-        if(stock>counter){
-            setCounter(counter+1)
-        }else{
-            alert("Sin Stock!!!")
-        }
+    
+    const handleRestar = ()=>{
+        cantidad > 0 && setCantidad(cantidad - 1)
     }
-       
-        
-    const decrementar = ()=>{
-        if(counter>1){
-            setCounter(counter-1)
-        }else{
-            alert("Valor menor a 1!!!")
-        }
-    }
-    const respuesta=()=>{
-        alert( `Agregaste al carrito  ${counter} unidades` )
+
+    const handleSumar = ()=>{
+        cantidad < max && setCantidad(cantidad + 1)
     }
 
     return (
-        <div>
-            <div>
-                <Button variant="secondary" onClick={decrementar}>-</Button>
-                  <h2>{counter}</h2>
-                <Button variant="secondary" onClick={incrementar}>+</Button>
-            </div>
-            <Button variant="secondary" onClick={respuesta}>Agregar al Carrito</Button>
-            
+        <div className="my-3">
+            <button className= "btn btn-primary" onClick={handleRestar}>
+                -
+            </button>
+
+            <span className="mx-2">{cantidad}</span>
+
+            <button className= "btn btn-primary" onClick={handleSumar}>
+                +
+            </button> 
+            <br/>
+            <button className= "btn btn-primary my-2" onClick={onAdd}>
+                Agregar al carrito
+            </button>          
         </div>
     )
 }
-
-
-//minuto 23mm
