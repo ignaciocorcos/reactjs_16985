@@ -1,12 +1,15 @@
 
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import { pedirDatos } from '../../helpers/pedirDatos'
 import { ItemList } from '../ItemList/ItemList'
 import { Container } from 'react-bootstrap'
 import { useParams } from 'react-router'
+import context from 'react-bootstrap/esm/AccordionContext'
 
 
 export const ItemListContainer = () => {
+
+    
 
     const [loading, setLoading] = useState(false)
     const [productos, setProductos] = useState([])

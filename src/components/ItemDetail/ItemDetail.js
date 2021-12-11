@@ -1,14 +1,17 @@
 import Button from "@restart/ui/esm/Button"
 import { useNavigate } from "react-router"
 import { ItemCount} from "../ItemCount/ItemCount" 
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
 import { Link } from "react-router-dom"
+import { CartContext } from "../../Context/CartContext"
 
 export const ItemDetail = ({id, name, img, desc, price, category, stock}) =>{
 
+    const {agregarAlCarrito, isInCart} = useContext(CartContext)
+
     const navigate = useNavigate()
     const [cantidad, setCantidad] = useState (0)
-    const [agregado, setAgregado] = useState(false)
+   
     
     const handleVolver = () =>{
         navigate(-1)
@@ -21,14 +24,16 @@ export const ItemDetail = ({id, name, img, desc, price, category, stock}) =>{
     const handleAgregar = ()=>{
 
         if (cantidad > 0){
-            console.log('Item agregados',{
+            agregarAlCarrito({
                 id,
                 name,
-                desc,
-                category,
+                price,
+                img,
                 cantidad
+
             })
-             setAgregado(true)
+            
+            
             }            
         }
 
@@ -42,7 +47,7 @@ export const ItemDetail = ({id, name, img, desc, price, category, stock}) =>{
             <p>Precio: ${price}</p>
             
             {
-                !agregado
+                !isInCart(id)
                 ?
                 <ItemCount
                     max={stock}

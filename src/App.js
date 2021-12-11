@@ -9,14 +9,17 @@ import { Clicker } from './components/ejemplo/Clicker/Clicker';
 import { BrowserRouter, Route, Routes, Navigate} from 'react-router-dom';
 import { ItemDetailContainer } from './components/ItemDetailContainer/ItemDetailContainer';
 import { CartView } from './components/CartView/CartView';
+import { CartContext, CartProvider } from './Context/CartContext';
 
 function App() {
-  
+
+
   return (
     <div className="mi.app">
-      <>
-        <BrowserRouter>
-          
+    <>
+    <CartProvider>
+      <BrowserRouter>
+  
           <NavBar />
           <HomeView titulos ="Taller en ingenieria Electrica" contenido ="Fabricacion y reparacion de equipo de soldadura por punto y fuentes de CC"/>
 
@@ -29,13 +32,12 @@ function App() {
             <Route path="/cart" element={<CartView/>}/>
             <Route path="*" element={<Navigate to="/"/>}/>
           
-          </Routes>
-                  
-            
-                 
+          </Routes>        
+        
         </BrowserRouter>
-     
-      </>
+      </CartProvider>
+
+    </>
      
 
     </div>
