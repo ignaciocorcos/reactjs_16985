@@ -1,11 +1,11 @@
 
 import React, { useEffect, useState, useContext } from 'react'
-import { pedirDatos } from '../../helpers/pedirDatos'
 import { ItemList } from '../ItemList/ItemList'
 import { Container } from 'react-bootstrap'
 import { useParams } from 'react-router'
 import context from 'react-bootstrap/esm/AccordionContext'
-
+import { collection, getDocs, where, query } from 'firebase/firestore/lite'
+import { db } from '../../firebase/confing'
 
 export const ItemListContainer = () => {
 
@@ -19,19 +19,20 @@ export const ItemListContainer = () => {
     useEffect(() => {
         
         setLoading(true)
-        pedirDatos()
-            .then( (resp) => {
-
-                if(!catId){
-                    setProductos(resp)
-                }else{
-                    setProductos(resp.filter( prod => prod.category === catId))
-                }
-            })
-            .catch( (error) => {
-                console.log(error)
-            })
-            .finally(() => {
+        const productosRef = collection(db, 'productos')
+        
+        const q = catId ? query (productosRef, where( 'category' , '==' , catId)) :productosRef
+        
+        getDocs (q)
+            .then( (collection) => {
+                const items = collection.docs.map ((doc)=> ({
+                    id:doc.id,
+                    ...doc.data()
+                }))
+                console.log(items)
+                setProductos(items)
+            } )
+            .finally(()=> {
                 setLoading(false)
             })
 

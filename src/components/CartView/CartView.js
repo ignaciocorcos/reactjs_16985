@@ -15,7 +15,7 @@ export const CartView = () => {
                         <h2>Cart View</h2>
                         <section>
                         {
-                             carrito.map((prod)=> <CartItem{...prod}/>)
+                             carrito.map((prod)=> <CartItem key={prod.id}{...prod}/>)
                          }
                         </section>
                         <hr/>
@@ -39,3 +39,4 @@ export const CartView = () => {
         </div>
     )
 }
+//video 1:04

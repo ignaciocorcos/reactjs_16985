@@ -2,7 +2,7 @@ export const stock = [
     {
         id: 1,
         price: 11500,
-        name: "Mpp1",
+        name: "Mpp1",   
         desc: "Lorem ipsum",
         img: "https://via.placeholder.com/220",
         category: "new",
